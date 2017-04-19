@@ -1,3 +1,8 @@
+*{
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
 body{
   width: 750/@r*1rem;
   margin: 0px auto;
@@ -42,6 +47,70 @@ body{
   }
 
 }
+
+//select
+.wechat-select{
+  float: right;
+  width: 440/@r*1rem;
+  height: 100/@r*1rem;
+  padding-top: 20/@r*1rem;
+  >select{
+    width: 100%;
+    height: 100/@r*1rem;
+    font-size: 30/@r*1rem;
+    //border:none;
+    border-color: rgba(0,0,0,0.1);
+    outline: none;
+    background-color: #fff;
+    //appearance:none;
+    //-moz-appearance:none;
+    //-webkit-appearance:none;
+  }
+}
+//date-日历
+.webchat-date{
+  float: right;
+  width: 130/@r*1rem;
+  height:80/@r*1rem;
+  line-height: 80/@r*1rem;
+  margin-top: 30/@r*1rem;
+  //background-color: #308EFF;
+  background-color: #32c5d2;
+  .transition();
+  &:active{
+    background-color: #26a1ab;
+  }
+  >span{
+    display: block;
+    float: left;
+    width: 50/@r*1rem;
+    height: 50/@r*1rem;
+    margin-top: 15/@r*1rem;
+    margin-left: 20/@r*1rem;
+
+    color:#fff;
+    &:before{
+      font-size: 50/@r*1rem;
+    }
+  }
+  >em{
+    display: block;
+    float: left;
+    width: 50/@r*1rem;
+    height: 50/@r*1rem;
+    line-height: 50/@r*1rem;
+    margin-top: 15/@r*1rem;
+    text-align: center;
+    color:#fff;
+    &:before{
+      font-size: 30/@r*1rem;
+    }
+  }
+}
+//
+
+
+
 .webchat-conlist{
   //width: 750/@r*1rem;
   height: 160/@r*1rem;
@@ -115,7 +184,7 @@ body{
 }
 .webchat-detailist{
   background-color: #fff;
-  .row{
+  .row-set{
     height: 100/@r*1rem;
     >span{
       display: block;
@@ -140,3 +209,18 @@ body{
     }
   }
 }
+//
+.daterangepicker.opensright:before {
+  right: 80/@r*1rem;
+  left: auto;
+}
+.daterangepicker.opensright:after {
+  right: 80/@r*1rem;
+  left: auto;;
+}
+.daterangepicker .input-mini,.daterangepicker .calendar-table{
+  box-sizing: border-box;
+}
+//.daterangepicker .daterangepicker_input {
+//  width:235px;
+//}

@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>webchat</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="css/daterangepicker.css">
     <link type="text/css" rel="stylesheet" href="css/main-webchat.css">
+
 </head>
 <body>
 <!--我的消费-->
@@ -12,8 +17,12 @@
         <em></em>
         <span>我的消费</span>
     </span>
-    <div class="datetime-select">
-        select
+    <!--<div class="datetime-select">-->
+        <!--select-->
+    <!--</div>-->
+    <div class="webchat-date" id="demo">
+        <span class="glyphicon glyphicon-calendar"></span>
+        <em class="glyphicon glyphicon-menu-down"></em>
     </div>
 </div>
 <!--消费列表-->
@@ -52,9 +61,19 @@
         <em class="ico-detail"></em>
         <span>消费详情</span>
     </span>
-    <div class="datetime-select">
-        select
+    <!--<div class="datetime-select">-->
+        <!--select-->
+    <!--</div>-->
+    <!---->
+    <div class="wechat-select">
+        <select>
+            <option>请选择</option>
+            <option>全部</option>
+            <option>消费</option>
+            <option>充值</option>
+        </select>
     </div>
+    <!---->
 </div>
 <!--消费详情-end-->
 <!--消费详情list-->
@@ -65,7 +84,7 @@
     <span>转化</span>
 </div>
 <div class="webchat-detailist">
-    <div class="row">
+    <div class="row-set">
         <span class="center-justified grid-wh-202">2018-02-02</span>
         <span class="grid-wh-192">5000</span>
         <span class="grid-wh-120">充值</span>
@@ -75,7 +94,95 @@
 <!--消费详情list-end-->
 
 
+
+
+
+
+<style type="text/css">
+    /*input[type='date']:before{*/
+        /*content:attr(placeholder);*/
+        /*color:red;*/
+    /*}*/
+    /*::-webkit-input-placeholder{*/
+        /*color:red;*/
+    /*}*/
+</style>
+<!--<div>-->
+    <!--<input type="date" value="年/月/日" placeholder="年/月/日">-->
+<!--</div>-->
+
 <script src="js/jquery1.10.2.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/daterangepicker.js"></script>
+
 <script src="js/flexible.js"></script>
+<script src="js/wechat-ty.js"></script>
+
+<!--<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+<!--<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>-->
+
+<script>
+
+    $('#demo').daterangepicker({
+        "ranges": {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        "startDate": moment().subtract(6, 'days'),
+        "endDate": moment(),
+        "locale": {
+            "direction": "ltr",
+            "format": "MM/DD/YYYY",
+            "separator": " - ",
+            "applyLabel": "Apply",
+            "cancelLabel": "Cancel",
+            "fromLabel": "From",
+            "toLabel": "To",
+            "customRangeLabel": "Custom",
+            "daysOfWeek": [
+                "Su",
+                "Mo",
+                "Tu",
+                "We",
+                "Th",
+                "Fr",
+                "Sa"
+            ],
+            "monthNames": [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December"
+            ]
+        }
+    }, function (start, end, label) {
+        //console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+        console.log(start.format('YYYY-MM-DD'), end.format('YYYY-MM-DD'), label);
+    });
+</script>
+
+<script>
+    /*
+    var o = document.getElementById("date");
+    o.onfocus = function () {
+        this.removeAttribute("placeholder");
+
+    }
+    o.onblur= function () {
+        if () {this.value == ""} this.setAttribute('placeholder','日期');
+        */
+</script>
 </body>
 </html>
